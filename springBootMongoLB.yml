@@ -23,7 +23,7 @@ spec:
         app: springboot
     spec:
       containers:
-      - image: ameintu/jenkins-docker-k8s-project
+      - image: kantin10/test-repo1
         name: springboot
         ports:
         - containerPort: 8080  
