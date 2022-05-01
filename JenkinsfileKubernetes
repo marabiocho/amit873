@@ -17,7 +17,7 @@ node{
         withCredentials([string(credentialsId: 'DOCKER_HUB_CREDENTIALS', variable: 'DOCKER_HUB_CREDENTIALS')]) {
             sh "docker login -u kantin10  -p ${DOCKER_HUB_CREDENTIALS}"
         }
-        sh "docker push kantin10/kantin:${env.BUILD_ID}"
+        sh "docker push kantin10/test-repo1:${env.BUILD_ID}"
     }
     
     stage("Deploy Application in K8S Cluster"){
