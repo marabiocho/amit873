@@ -1,6 +1,6 @@
 node{
     stage('SCM Checkout') {
-        git branch: 'main', credentialsId: 'GIT_CREDENTIALS', url: 'https://https://github.com/marabiocho/amit873.git'
+        git branch: 'main', credentialsId: 'marabiocho', url: 'https://https://github.com/marabiocho/amit873.git'
     }
     
     stage('Maven Clean Package') {
@@ -14,8 +14,8 @@ node{
     }
     
     stage('Push Docker Image'){
-        withCredentials([string(credentialsId: 'DOCKER_HUB_CREDENTIALS', variable: 'DOCKER_HUB_CREDENTIALS')]) {
-            sh "docker login -u kantin10  -p ${DOCKER_HUB_CREDENTIALS}"
+        withCredentials([string(credentialsId: 'kantin10', variable: 'DOCKER_HUB_CREDENTIALS')]) {
+            sh "docker login -u kantin10  -p kantin10@"
         }
         sh "docker push kantin10/test-repo1:${env.BUILD_ID}"
     }
